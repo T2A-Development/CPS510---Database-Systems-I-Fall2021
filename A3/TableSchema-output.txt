@@ -1,0 +1,48 @@
+
+Table JB_USERS dropped.
+
+
+Table JB_MEMBERS dropped.
+
+
+Table RECRUITERS dropped.
+
+
+Table JB_POSTINGS dropped.
+
+
+Table QUALIFICATIONS dropped.
+
+
+Table MEMBERSHIPS dropped.
+
+
+Table CONNECTIONS dropped.
+
+
+Table HR_DEPARTMENT dropped.
+
+
+Table JB_USERS created.
+
+
+Table JB_MEMBERS created.
+
+
+Table RECRUITERS created.
+
+
+Table JB_POSTINGS created.
+
+
+Table QUALIFICATIONS created.
+
+
+Table MEMBERSHIPS created.
+
+
+Table CONNECTIONS created.
+
+
+Table HR_DEPARTMENT created.
+

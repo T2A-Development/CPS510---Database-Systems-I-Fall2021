@@ -1,0 +1,62 @@
+CREATE TABLE JB_Users (
+login_id VARCHAR2(25 CHAR),
+user_password VARCHAR2(25 CHAR),
+PRIMARY KEY (login_id)
+);
+CREATE TABLE JB_Members (
+member_id VARCHAR2(25 CHAR),
+member_type VARCHAR2(25 CHAR),
+address VARCHAR2(50 CHAR),
+subscriptions VARCHAR2(50 CHAR),
+date_Created VARCHAR2(25 CHAR),
+login_id VARCHAR2 (25 CHAR),
+PRIMARY KEY (member_id),
+FOREIGN KEY (login_id) REFERENCES JB_Users(login_id)
+);
+CREATE TABLE Recruiters (
+recr_id VARCHAR2(25 CHAR),
+member_id VARCHAR2(25 CHAR),
+company_name VARCHAR2(25 CHAR),
+manager_name VARCHAR2(25 CHAR),
+PRIMARY KEY(recr_id),
+FOREIGN KEY(member_id) REFERENCES JB_Members(member_id)
+);
+CREATE TABLE Departments (
+depart_id VARCHAR2(25 CHAR),
+org_id VARCHAR2(25 CHAR),
+depart_name VARCHAR2(50 CHAR),
+hr_manager VARCHAR2(50 CHAR),
+PRIMARY KEY(depart_id),
+FOREIGN KEY(org_id) REFERENCES Recruiters(recr_id)
+);
+CREATE TABLE Qualifications (
+qualification_id VARCHAR2(10 CHAR),
+edu_level VARCHAR2(50 CHAR),
+JB_User_id VARCHAR2(25 CHAR),
+experience NUMBER,
+coverLetter VARCHAR2(1000 CHAR),
+certi_license VARCHAR2(25 CHAR),
+PRIMARY KEY(qualification_id),
+FOREIGN KEY(JB_User_id) REFERENCES JB_Users(login_id)
+);
+CREATE TABLE Connections (
+conn_id VARCHAR2(12 CHAR),
+member_id VARCHAR2(25 CHAR),
+date_made VARCHAR2(25 CHAR),
+details VARCHAR2(150 CHAR),
+PRIMARY KEY(conn_id),
+FOREIGN KEY(member_id) REFERENCES JB_Members(member_id)
+);
+CREATE TABLE JB_Postings (
+job_id VARCHAR2 (20 CHAR),
+work_period NUMBER,
+company VARCHAR2(25 CHAR),
+salary NUMBER,
+job_title VARCHAR2(35 CHAR),
+job_location VARCHAR2(35 CHAR),
+job_type VARCHAR2(45 CHAR),
+effective_date VARCHAR2(25 CHAR),
+end_date VARCHAR2(25 CHAR),
+PRIMARY KEY(job_id),
+FOREIGN KEY(company) REFERENCES Departments(depart_id)
+);
